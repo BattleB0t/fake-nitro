@@ -1,5 +1,6 @@
 from PIL import Image, ImageDraw, ImageFont
 import requests
+import datetime
 import time
 import os
 
@@ -70,18 +71,20 @@ draw.text((100 + (40 * qualaty) + 10 * qualaty, 50 - 5 * qualaty + nitroImg.heig
 senderSize = draw.textsize(sender["username"], font=font)[0]
 recSize = draw.textsize(rec["username"], font=font)[0]
 
-font = ImageFont.truetype("fonts/whitneylight.otf", 10 * qualaty)
-draw.text((100 + (40 * qualaty) + 10 * qualaty + senderSize + 10 * qualaty, 50 - 5 * qualaty + (9.5 * qualaty)), "Today at 1:33 PM", font=font, fill="#9fa2a6")
-draw.text((100 + (40 * qualaty) + 10 * qualaty + recSize + 10 * qualaty, 50 - 5 * qualaty + (9.5 * qualaty)+ nitroImg.height + 50 * qualaty), "Today at 1:34 PM", font=font, fill="#9fa2a6")
+now = datetime.datetime.now().strftime("Today at %I:%M %P")
 
-font = ImageFont.truetype("fonts/whitneylight.otf", 20 * qualaty)
+font = ImageFont.truetype("fonts/whitneylight.otf", 10 * qualaty)
+draw.text((100 + (40 * qualaty) + 10 * qualaty + senderSize + 10 * qualaty, 50 - 5 * qualaty + (9.5 * qualaty)), now, font=font, fill="#9fa2a6")
+draw.text((100 + (40 * qualaty) + 10 * qualaty + recSize + 10 * qualaty, 50 - 5 * qualaty + (9.5 * qualaty)+ nitroImg.height + 50 * qualaty), now, font=font, fill="#9fa2a6")
+
+font = ImageFont.truetype("fonts/whitneybook.otf", 19 * qualaty)
 
 draw.text(
     (
         100 + (40 * qualaty) + 10 * qualaty,
         50 - 5 * qualaty + (9.5 * qualaty)+ nitroImg.height + 63 * qualaty
     ), 
-    "Omg bro, thank you so much. Lets do the fucky wucky tonight?", font=font)
+    "Omg bro, thank you so much. Lets do the fucky wucky tonight?", font=font, fill="#cfd0cf")
 
 
 
