@@ -1,6 +1,7 @@
 from PIL import Image, ImageDraw, ImageFont
 import requests
 import datetime
+import random
 import time
 import os
 
@@ -79,12 +80,20 @@ draw.text((100 + (40 * qualaty) + 10 * qualaty + recSize + 10 * qualaty, 50 - 5 
 
 font = ImageFont.truetype("fonts/whitneybook.otf", 19 * qualaty)
 
+## Generate random response
+with open("responses.txt", "r") as file:
+    data = [i.strip() for i in file.readlines()]
+    print(data)
+
+choice = random.choice(data)
+print(choice)
+
 draw.text(
     (
         100 + (40 * qualaty) + 10 * qualaty,
         50 - 5 * qualaty + (9.5 * qualaty)+ nitroImg.height + 63 * qualaty
     ), 
-    "Omg bro, thank you so much. Lets do the fucky wucky tonight?", font=font, fill="#cfd0cf")
+    choice, font=font, fill="#cfd0cf")
 
 
 
