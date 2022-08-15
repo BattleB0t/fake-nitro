@@ -7,7 +7,7 @@ import os
 
 qualaty = 3
 
-## Get ids of sender and recipiant
+## Get ids of sender and recipian
 
 print("User token (sender token)")
 token = input(">> ")
